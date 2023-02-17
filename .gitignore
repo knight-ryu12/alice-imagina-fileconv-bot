@@ -1,0 +1,7 @@
+.gradle
+.idea
+gradle
+build
+
+config.properties
+!src/main/resources/config.properties
