@@ -22,7 +22,8 @@ public class randomCharacterCreationCommand extends Command {
     private enum SPECIES {
         HUMAN("human"),
         ELF("elf"),
-        DWARF("dwarf"),TABBIT, RUNEFOLK, NIGHTMARE, LYCAN;
+        DWARF("dwarf"),
+        TABBIT("tabbit"), RUNEFOLK("runefolk"), NIGHTMARE("nightmare"), LYCAN("lycan");
 
 
         SPECIES(String species_name) {
