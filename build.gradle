@@ -1,4 +1,5 @@
 plugins {
+    //id 'com.github.johnrengelman.shadow' version '8.1.1'
     id 'java'
     id 'application'
 }
@@ -6,10 +7,14 @@ plugins {
 group 'team.digitalfairy.felis'
 version '1.0-SNAPSHOT'
 
-mainClassName = 'team.digitalfairy.felis.Main'
 
 repositories {
     mavenCentral()
+}
+
+application {
+    mainClass = 'team.digitalfairy.felis.Main'
+
 }
 
 dependencies {
@@ -19,11 +24,11 @@ dependencies {
     implementation('ch.qos.logback:logback-classic:1.4.5')
 
 
-    implementation group: 'org.postgresql', name: 'postgresql', version: '42.3.5'
+    implementation group: 'org.postgresql', name: 'postgresql', version: '42.3.8'
     implementation group: 'com.zaxxer', name: 'HikariCP', version: '5.0.1'
 
     // https://mvnrepository.com/artifact/net.dv8tion/JDA
-    implementation group: 'net.dv8tion', name: 'JDA', version: '5.0.0-beta.2'
+    implementation group: 'net.dv8tion', name: 'JDA', version: '5.0.0-beta.12'
 
     // define a BOM and its version
     implementation(platform("com.squareup.okhttp3:okhttp-bom:4.10.0"))
@@ -39,6 +44,11 @@ dependencies {
     // https://mvnrepository.com/artifact/com.google.guava/guava
     implementation group: 'com.google.guava', name: 'guava', version: '31.1-jre'
 
+    implementation group: 'io.github.netvl.ecoji', name: 'ecoji', version: "1.0.0"
+
+    implementation 'org.bouncycastle:bcprov-jdk18on:1.75'
+    // https://mvnrepository.com/artifact/org.bouncycastle/bcprov-ext-jdk18on
+    implementation 'org.bouncycastle:bcprov-ext-jdk18on:1.75'
 
 }
 

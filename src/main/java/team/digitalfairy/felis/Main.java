@@ -11,26 +11,31 @@ import team.digitalfairy.felis.init.SlashCommandRegistry;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.security.Security;
 import java.util.Properties;
+import org.bouncycastle.jce.provider.BouncyCastleProvider;
 //import java.util.ResourceBundle;
 
 public class Main {
+    public static Properties pr;
     public static void main(String[] args) {
-        Properties pr = new Properties();
+        pr = new Properties();
         try(FileInputStream fis = new FileInputStream("config.properties")) {
             pr.load(fis);
             System.out.println(pr.getProperty("version"));
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
 
-        JDABuilder jb = JDABuilder.createDefault(pr.getProperty("token"));
+        JDABuilder jb = JDABuilder.createDefault(pr.getProperty("token"))
+                .enableIntents(GatewayIntent.MESSAGE_CONTENT); // For logging usage; Enabling to log messages and outputting is required
+
         // Register slash command
         jb.enableIntents(GatewayIntent.MESSAGE_CONTENT);
         JDA jda = jb.build();
+
+        Security.addProvider(new BouncyCastleProvider());
 
         SlashCommandRegistry.registerCommands(jda);
         jda.addEventListener(new SlashCommandListener());

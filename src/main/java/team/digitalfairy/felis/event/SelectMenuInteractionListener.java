@@ -9,6 +9,7 @@ import okhttp3.Request;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import team.digitalfairy.felis.commands.GOGSearchCommand;
+import team.digitalfairy.felis.commands.SteamSearchCommand;
 
 import java.util.List;
 import java.util.Objects;
@@ -22,7 +23,7 @@ public class SelectMenuInteractionListener extends ListenerAdapter {
     @Override
     public void onStringSelectInteraction(StringSelectInteractionEvent event) {
         // Got Interaction events? call whatever
-        if(event.getComponentId().startsWith("menu:id")) {
+        if(event.getComponentId().startsWith("gog_menu:id")) {
             // got Id
             log.info("GotId "+ event.getComponentId());
 
@@ -51,9 +52,12 @@ public class SelectMenuInteractionListener extends ListenerAdapter {
             // Do we have queued message?
             GOGSearchCommand.listQueried.invalidate(event.getComponentId());
 
+        } else if(event.getComponentId().startsWith("steam_menu:id")) {
+            log.info("GotId "+ event.getComponentId());
 
 
 
+            SteamSearchCommand.listQueried.invalidate(event.getComponentId());
         }
 
 

@@ -1,0 +1,28 @@
+package team.digitalfairy.felis.commands;
+
+import net.dv8tion.jda.api.interactions.commands.build.Commands;
+import net.dv8tion.jda.api.interactions.commands.build.SlashCommandData;
+import team.digitalfairy.felis.abs.Command;
+import team.digitalfairy.felis.abs.SlashCommandContext;
+
+import java.math.BigInteger;
+
+public class factorizationCommand extends Command {
+
+
+    @Override
+    public SlashCommandData getSlashCommand() {
+        return Commands.slash("factor","Factorization");
+    }
+
+    @Override
+    public boolean onInvoke(SlashCommandContext data) {
+
+        return true;
+    }
+
+    @Override
+    public String getCommandName() {
+        return "factor";
+    }
+}

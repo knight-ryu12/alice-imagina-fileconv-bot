@@ -58,7 +58,7 @@ public class GOGSearchCommand extends Command {
     @Override
     public boolean onInvoke(SlashCommandContext data) {
         data.e.deferReply().queue();
-        String newId = "menu:id/"+data.e.getId();
+        String newId = "gog_menu:id/"+data.e.getId();
         log.info("Got message, created Id = "+newId);
 
 

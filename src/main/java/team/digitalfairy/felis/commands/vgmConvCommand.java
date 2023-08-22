@@ -48,6 +48,12 @@ public class vgmConvCommand extends Command {
         boolean res = ff.delete();
         if(!res) return false;
 
+        // convert that to FLAC
+
+        // upload to discord
+
+        // delete both WAV and FLAC
+
         return true;
     }
 
